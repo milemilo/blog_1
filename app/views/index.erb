@@ -1,0 +1,9 @@
+<div class="container">
+  <!-- <h1>Mile's Blog</h1> -->
+  <p>Posts!</p>
+  <ul>
+  <% @posts.each do |post| %>
+  <li><a href="/post/<%= post.id %>"<%= post.id %>> <%= post.title %></a><br><%= post.body %></li><br>
+  <% end %>
+</ul>  
+</div>
