@@ -1,14 +1,19 @@
 <div class="container">
+<ul id="error_messages">
+  <% @post.errors.messages.each do |attr, messages| %>
+    <li><b>Warning! <%= attr.capitalize %></b> - <%= messages.join(" ").capitalize %></li>
+    <% end %>
+</ul>
+
   <form action='/create_post' method="POST"><br>
     <label for="author">Author Name: </label>
-    <input type="text" name="author">
+    <input class="<%= "error" if @post.errors.messages[:author] %>" type="text" name="author" value="<%= @post.author %>">
     <p></p>
     <label for="title">Post Title: </label>
-    <input type="text" name="title">
+    <input class="<%= "error" if @post.errors.messages[:title] %>" type="text" name="title" value="<%= @post.title %>">
     <p></p>
     <label for="body">Post Content: </label><br>
-    <textarea cols="50" rows="5" name="body"> 
-    </textarea>
+    <textarea cols="50" rows="5" name="body"><%= @post.body %></textarea>
     <p></p>
     <input type="submit" value="Submit Post">
   </form>

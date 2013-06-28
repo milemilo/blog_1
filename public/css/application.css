@@ -33,6 +33,10 @@ nav {
   border-top: 1px solid #ccc; 
 }
 
+nav ul {
+  margin: 0;
+}
+
 nav li {
   float: left;
   list-style: none;
@@ -51,6 +55,17 @@ nav li a {
 nav li a:hover {
   color: #c00;
   background-color: #fff; 
+}
+
+#error_messages {
+  width: 300px;
+  color: red;
+  margin-right: 0;
+  padding: 0px;
+}
+
+ul li {
+  list-style-type: none;
 }
 
 footer {

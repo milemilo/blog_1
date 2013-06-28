@@ -5,15 +5,22 @@ get '/post/:id' do
 end
 
 get '/create_post' do
-
+  @post = Post.new
 erb :create_post
 end
 
 post '/create_post' do
  #this will allow you to create a new post
  #ability to create tags
- Post.create(params)
+ @post = Post.create(params)
+
+# @post = Post.new(params)
+
+if @post.save
  redirect '/'
+else
+  erb :create_post
+  end
 end
 
 get '/edit_post/:id' do
